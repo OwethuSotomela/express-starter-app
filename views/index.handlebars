@@ -2,14 +2,121 @@
 
 
 <div>
-    Start here
+    <div class="index">
 
-    <form action="/count" method="post">
-        <div class="counter" >
-            {{counter}}
-        </div>    
-        <input type="submit" value="Press button to count">
-    
-    </form>
+        <body>
+            <div>
 
+                <h1>Pizza Order</h1>
+
+                <div class="pizzas">
+                    <div class="pizza small">
+                        <div class="info">
+                            <img src="pizza.png" alt="">
+                            <h2>Small Pizza</h2>
+                            <strong>31.99</strong>
+                        </div>
+                        <div class="orderBox">
+                            <form action="/orderSmall" method="POST">
+                                <button class="btn orderSmallPizza" type="submit" style="margin-left: auto">Order small
+                                    pizza</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="pizza medium">
+                        <div class="info">
+                            <img src="pizza.png" alt="">
+                            <h2>Medium Pizza</h2>
+                            <strong>R76.99</strong>
+                        </div>
+
+                        <div class="orderBox">
+                            <form action="/orderMedium" method="POST">
+                                <button class="btn orderMediumPizza" type="submit" style="margin-left: auto">Order
+                                    medium
+                                    pizza</button>
+                            </form>
+                        </div>
+
+                    </div>
+
+                    <div class="pizza large">
+                        <div class="info">
+                            <img src="pizza.png" alt="">
+                            <h2>Large Pizza</h2>
+                            <strong>98.99</strong>
+                        </div>
+                        <div class="orderBox">
+                            <form action="/orderLarge" method="POST">
+                                <button class="btn orderLargePizza" type="submit" style="margin-left: auto">Order large
+                                    pizza</button>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="total">
+                    <br>
+                    <div>
+                        <form action="/order" method="POST">
+                            <button type="submit">Place Order</button>
+                        </form>
+                    </div>
+                </div>
+                <br>
+                <div class="total">
+                    <table>
+                        <tr>
+                            <td><strong>Small pizzas total:</strong></td>
+                            <td><span class="smallTotalPrice">{{0.00}}</span></td>
+                        </tr>
+
+                        <tr>
+                            <td><strong>Medium pizzas total:</strong></td>
+                            <td><span class="mediumTotalPrice">{{0.00}}</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Large pizza total:</strong></td>
+                            <td><span class="largeTotalPrice">{{0.00}}</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Total price</strong></td>
+                            <td><span class="totalPrice">{{0.00}}</span></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="footer">
+                    <div class="contact">
+
+                    </div>
+
+                </div>
+            </div>
+        </body>
+        {{!--
+        <script src="order-pizza.js"></script>
+        <script src="pizza.js"></script> --}}
+
+        <hr>
+        {{!--
+
+        </html>
+
+        </html> --}}
+    </div>
+    <div class="header">
+        <div>
+            <form action="/total" method="GET"></form>
+        </div>
+
+        <form action="/count" method="post">
+            <div class="counter">
+                {{counter}}
+            </div>
+            <input type="submit" value="Press button to count">
+
+        </form>
+
+    </div>
 </div>
