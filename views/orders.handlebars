@@ -1,0 +1,22 @@
+<div>
+    <h3>Orders</h3>
+    <div class="orderList">
+
+        <table>
+            {{#each orders}}
+            <tr>
+                <td><strong>{{orderId}}</strong></td>
+                <td><span class="smallTotalPrice">{{status}}</span></td>
+                <td><span class="smallTotalPrice">R {{amount}}</span></td>
+                <td>
+                    <form action="/button/{{orderId}}/{{statusCheck}}" method="post"> <button class="btn payment"
+                            type="submit" style="margin-left: auto">{{statusCheck}}</button> </form>
+                </td>
+            </tr>
+            {{/each}}
+        </table>
+
+    </div>
+
+    <a href="/">Back</a>
+</div>
