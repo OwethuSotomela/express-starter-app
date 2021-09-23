@@ -2,7 +2,6 @@
     <div class="col-12">
         <h1>Pizza Order</h1>
     </div>
-
 </div>
 
 <div class="row">
@@ -13,7 +12,6 @@
                 <div class="orderBox">
                     <form action="/orderSmall" method="POST">
                         <div class="info">
-                            <img src="pizza.png" alt="">
                             <h2>Small Pizza</h2>
                             <div name="smallPrice" value="31.99"><strong>R31.99</strong></div>
 
@@ -31,7 +29,6 @@
                 <form action="/orderMedium" method="POST">
 
                     <div class="info">
-                        <img src="pizza.png" alt="">
                         <h2>Medium Pizza</h2>
                         <strong name="mediumPrice" value="76.99">R76.99</strong>
                     </div>
@@ -50,7 +47,6 @@
                 <form action="/orderLarge" method="POST">
 
                     <div class="info">
-                        <img src="pizza.png" alt="">
                         <h2>Large Pizza</h2>
                         <strong name="largePrice">R98.99</strong>
                     </div>
@@ -82,31 +78,6 @@
                 {{/each}}
             </table>
         </div>
-{{!-- 
-        <div class="footer">
-            <div class="contact">
-
-            </div>
-
-        </div> --}}
-</body>
-
-
-<hr>
-
-</div>
-<div class="header">
-    <div>
-        <form action="/total" method="GET"></form>
-    </div>
-
-    <form action="/count" method="post">
-        <div class="counter">
-            {{counter}}
-        </div>
-        <input type="submit" value="Press button to count">
-
-    </form>
-
+    </body>
 </div>
 </div>
