@@ -77,7 +77,7 @@
                 <tr>
                     <td><strong>{{sizeType}} pizzas total:</strong></td>
                     <td> <form action="/add/{{sizeType}}" method="POST"> <input type="submit" value="+"> </form> {{qty}} <form action="/sub/{{sizeType}}" method="POST"> <input type="submit" value="-">  </form> </td>
-                    <td><span class="smallTotalPrice">{{price}}</span></td>
+                    <td><span class="smallTotalPrice">R {{price}}</span></td>
                 </tr>
                 {{/each}}
             </table>

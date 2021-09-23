@@ -1,0 +1,23 @@
+<div>
+    <h3>Orders</h3>
+    <div class="orderList">
+        {{!-- <div class="paymentDue-order">
+            <button class="btn payment" type="submit" style="margin-left: auto">Pay</button>
+            <button class="btn collect" type="submit" style="margin-left: auto">collect</button>
+        </div> --}}
+
+        <table>
+          {{#each orders}}
+          <tr>
+            <td><strong>#{{orderId}}</strong></td>
+            <td><span class="smallTotalPrice">{{status}}</span></td>
+            <td><span class="smallTotalPrice">R {{amount}}</span></td>
+            <td> <form action="/button/{{orderId}}/{{statusDecide}}" method="post"> <button class="btn payment" type="submit" style="margin-left: auto">{{statusDecide}}</button> </form></td>
+          </tr>
+          {{/each}}
+        </table>
+
+    </div>
+
+    <a href="/">Back</a>
+</div>

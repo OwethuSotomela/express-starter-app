@@ -33,27 +33,42 @@ app.post('/count', function(req, res) {
 
 app.post('/orderSmall', function(req, res){
 	pizzaLog.OrderSmall(31.99);
+	var Pizza = pizzaLog.GetcartList()
 	res.render('index',{
-		Pizza: pizzaLog.GetcartList(),
+		Pizza: Pizza.filter(pizza => (pizza.price).toFixed(2)),
 	});
 })
 app.post('/orderMedium', function(req, res){
 	let medium = req.body.mediumPrice;
 	pizzaLog.OrderMedium(58.99);
 	console.log(pizzaLog.GetcartList())
+	var Pizza = pizzaLog.GetcartList()
 	res.render('index',{
-		Pizza: pizzaLog.GetcartList(),
+		Pizza: Pizza.filter(pizza => (pizza.price).toFixed(2)),
 	});
 })
 app.post('/orderLarge', function(req, res){
 	let large = req.body.largePrice;
 	console.log(large);
+	pizzaLog.OrderLarge(98.99)
+	var Pizza = pizzaLog.GetcartList()
 	res.render('index',{
-		Pizza: pizzaLog.GetcartList(),
+		Pizza: Pizza.filter(pizza => (pizza.price).toFixed(2)),
 	});
 })
 app.post('/order', function(req, res){
-	res.render('addPizza')
+
+	res.render('orders', {
+		orders: pizzaLog.Orders()
+	})
+})
+
+app.post('/button/:orderId/:statusDecide', function(req, res){
+	const { orderId, statusDecide } = req.params;
+	pizzaLog.buttonStatus(statusDecide, orderId)
+	res.render('orders', {
+		orders: pizzaLog.Orders()
+	})
 })
 
 app.post('/add/:sizeType', function(req, res){

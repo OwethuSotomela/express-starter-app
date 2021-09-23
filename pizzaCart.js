@@ -1,13 +1,40 @@
 module.exports = () => {
 
-    cartList = [];
+    var cartList = [];
     pizza = "";
+    var ordersList = []
 
     function order() {
         if (!cartList.includes(pizza)) {
             cartList.push(pizza);
         }
     }
+
+    function buttonStatus(statusDecide, orderId) {
+        var orderFromList = ordersList.filter(order => order.orderId == orderId)
+        orderFromList = orderFromList[0]
+        if(statusDecide == "Pay"){
+            orderFromList.statusDecide = "Collect"
+            orderFromList.status = "Paid"
+        } else if(statusDecide == "Collect"){
+            orderFromList.statusDecide = "Collected"
+            orderFromList.status = "Collected"
+        }
+    }
+
+    function Orders() {
+		var amount = Total()
+		if(amount != 0.00){
+			ordersList.push({
+				orderId : ordersList.length + 1,
+				status : "Payment due",
+				amount : amount,
+				statusDecide: "Pay"
+			})
+			cartList = []
+		}
+		return ordersList
+	}
 
     function OrderSmall(price) {
         var samllPizza = cartList.filter(pizza => (pizza.sizeType === "small"));
@@ -79,11 +106,20 @@ module.exports = () => {
         return pizza.length;
     }
 
+    function Total() {
+		var total = 0
+		cartList.filter(pizza => total += pizza.price)
+		return total.toFixed(2)
+	}
+
     function getTotal() {
         total = pizza.length;
     }
 
     return {
+        buttonStatus,
+        Total,
+        Orders,
         OrderSmall,
         GetcartList,
         OrderMedium,
